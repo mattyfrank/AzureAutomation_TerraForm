@@ -4,7 +4,6 @@ Param (
     [String]$GroupName,
     [String]$EndPoint,
     [String]$Token
-
 )
 
 # Sleep until the MMA object has been registered
@@ -14,6 +13,7 @@ Write-Output "Waiting for agent registration to complete..."
 $i = 180
 
 do {
+    
     # Check for the MMA folders
     try {
         # Change the directory to the location of the hybrid registration module
@@ -26,7 +26,11 @@ do {
 
         # Mark the flag as true
         $hybrid = $true
-    }catch {$hybrid = $false}
+    } catch{
+
+        $hybrid = $false
+
+    }
     # Sleep for 10 seconds
     Start-Sleep -s 10
     $i--
