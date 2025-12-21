@@ -54,8 +54,8 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss_hw" {
   instances                                         = 1
   enable_automatic_updates                          = true
   timezone                                          = "Pacific Standard Time"
-  admin_username                                    = "LocalUserName"  #var.local_admin_username
-  admin_password                                    = "LocalPassword!" #var.local_admin_pw
+  admin_username                                    = var.local_admin_user
+  admin_password                                    = var.local_admin_pw
   do_not_run_extensions_on_overprovisioned_machines = true
   tags                                              = var.tags
   upgrade_mode                                      = "Manual" #"Automatic"
