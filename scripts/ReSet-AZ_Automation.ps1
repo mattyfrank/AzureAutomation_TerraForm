@@ -36,6 +36,7 @@ $HWG = Get-AzAutomationHybridWorkerGroup -ResourceGroupName $AA.ResourceGroupNam
 Remove-AzAutomationHybridWorkerGroup -ResourceGroupName $AA.ResourceGroupName -AutomationAccountName $AA.AutomationAccountName -Name $HWG.Name
 
 Write-Output "Remove VMSS"
+Get-AzAutoscaleSetting -Name vmss-autoscale -ResourceGroupName $AA.ResourceGroupName | Remove-AzAutoscaleSetting
 Get-AzVmss -ResourceGroupName $AA.ResourceGroupName -VMScaleSetName $VMSS_Name | Remove-AzVmss -Force
 
 Write-Output "AZ Automation Reset to Clean State"
